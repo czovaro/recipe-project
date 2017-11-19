@@ -2,11 +2,35 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
+        authDomain: "recipe-project-sisweb.firebaseapp.com",
+        databaseURL: "https://recipe-project-sisweb.firebaseio.com",
+        projectId: "recipe-project-sisweb",
+        storageBucket: "recipe-project-sisweb.appspot.com",
+        messagingSenderId: "926144456222"
+      };
+      firebase.initializeApp(config);
 
-    <title>Sancooking</title>
+    });
+    
+    function singIn(){
+      var email = $('#email').val();
+      var password = $('#password').val();
+      firebase.auth().signInWithEmailAndPassword(email, password);
+    }
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+
+  <title>Sancooking</title>
 </head>
 
 <body>
@@ -58,14 +82,14 @@
                             <br />
                             <div class="form-wrap"><br />
                                 <h1>Entre com sua conta</h1><br/>
-                                <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                                <form onsubmit="singIn(); return false" role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
                                     <div class="form-group">
                                         <label for="email" class="sr-only">Email</label>
                                         <input type="email" name="email" id="email" class="form-control" placeholder="alguem@exemplo.com">
                                     </div>
                                     <div class="form-group">
                                         <label for="key" class="sr-only">Login Sancooking</label>
-                                        <input type="password" name="key" id="key" class="form-control" placeholder="Senha">
+                                        <input type="password" name="key" id="password" class="form-control" placeholder="Senha">
                                     </div>
 
                                     <input type="submit" id="btn-login" class="btn btn-primary btn-lg" value="Entrar">

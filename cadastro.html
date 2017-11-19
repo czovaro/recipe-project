@@ -2,11 +2,40 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
+        authDomain: "recipe-project-sisweb.firebaseapp.com",
+        databaseURL: "https://recipe-project-sisweb.firebaseio.com",
+        projectId: "recipe-project-sisweb",
+        storageBucket: "recipe-project-sisweb.appspot.com",
+        messagingSenderId: "926144456222"
+      };
+      firebase.initializeApp(config);
 
-    <title>Sancooking</title>
+    });
+    function singUp(){
+      var email = $('#email').val();
+      var password = $('#password').val();
+      var confirm_password = $('#confirm_password').val();
+      if (password == confirm_password){
+        firebase.auth().createUserWithEmailAndPassword(email, password);
+        console.log("created!");
+        window.location.href = "login.html";
+      } else {
+        console.log("Different passwords!");
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+
+  <title>Sancooking</title>
 </head>
 
 <body>
@@ -53,7 +82,7 @@
             <section id="login">
                 <div class="container">
                     <br />
-                    <form>
+                    <form onsubmit="singUp(); return false">
                         <fieldset>
                             <legend>Cadastro de Usuário</legend>
                             <div class="form-group row">
@@ -100,23 +129,23 @@
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Login</label>
 
-                                    <input class="form-control" type="text" placeholder="exemplo@seuemail.com" id="example-text-input">
+                                    <input class="form-control" type="text" placeholder="exemplo@seuemail.com" id="email">
                                 </div>
 
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Senha</label>
 
-                                    <input class="form-control" type="password" placeholder="" id="example-text-input">
+                                    <input class="form-control" type="password" placeholder="" id="password">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-12 col-form-label">Confirmação de senha</label>
 
-                                    <input class="form-control" type="password" placeholder="" id="example-text-input">
+                                    <input class="form-control" type="password" placeholder="" id="confirm_password">
                                 </div>
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+                            <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
                             </legend>
                         </fieldset>
                 </div>
