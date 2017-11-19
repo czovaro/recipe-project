@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <meta charset="UTF-8">
+
+	<title>Sancooking</title>
+<style>
+.custom-file-control::before{
+    content: "Selecionar"
+}
+.custom-file-control::after{
+    content: "Escolha uma ou mais imagens..."
+}
+.offset-2{
+    margin-left: 16.66%
+}
+</style>
+</head>
+
+<body>
+	<header><nav class="navbar navbar-light bg-light">
+  	<a class="navbar-brand" href="#">
+    <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    	SancaCooking - O maior site de receitas do interior paulista!
+  	</a>
+</nav></header>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">+ Lidas <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Melhores Receitas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Relacionados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Cadastro</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</nav>
+
+<div class="row">
+    <div role="main" class="col-md-8">
+    <div class="container">
+
+
+        <div itemscope itemtype="http://schema.org/Recipe">
+
+            <div class="container" style="background-color:#F7F7F7;" id="tourpackages-carousel">
+                <div class="row row-list">
+                    <div class="col-xs-18 col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img style="height: 280px;width:280px;" class="img-small" src="assets/recipes/brigadeiro.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img style="height: 280px;width:280px;" class="img-small" src="assets/recipes/brigadeiro1.jpg" alt="">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-18 col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <img style="height: 280px;width:280px;" class="img-small" src="assets/recipes/brigadeiro2.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row row-list">
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Nome da receita
+                    </h2>
+                    <p>
+                        Brigadeiro
+                    </p>
+                </div>
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Porções
+                    </h2>
+                    <p itemprop="recipeYield">
+                        40 unidades pequenas
+                    </p>
+                </div>
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Tempo de preparo
+                    </h2>
+                    <p itemprop="cookTime">
+                        1 hora
+                    </p>
+                </div>
+            </div>
+            <div class="row row-list">
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Método de cozimento
+                    </h2>
+                    <p itemprop="cookingMethod">
+                        Cozido
+                    </p>
+                </div>
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Categoria da Receita
+                    </h2>
+                    <p itemprop="recipeCategory">
+                        Sobremesa
+                    </p>
+                </div>
+                <div class="col-xs-18 col-sm-6 col-md-4">
+                    <h2>
+                        Valor nutricional
+                    </h2>
+                    <p itemprop="nutrition">
+                        1000 calorias
+                    </p>
+                </div>
+            </div>
+
+
+            <h2>
+                Ingredientes
+            </h2>
+
+            <ul>
+                <li>
+                    <span itemprop="recipeIngredient">1 lata de leite condensado</span>
+                </li>
+                <li>
+                    <span itemprop="recipeIngredient">1 colher (sopa) de manteiga</span>
+                </li>
+                <li>
+                    <span itemprop="recipeIngredient">2 colheres (sopa) de chocolate em pó</span>
+                </li>
+                <li>
+                    <span itemprop="recipeIngredient">Chocolate granulado para decorar</span>
+                </li>
+            </ul>
+
+            <h2>
+                Modo de preparo
+            </h2>
+            <p itemprop="recipeInstructions">
+                Despeje o leite condensado numa panela média em fogo médio. Adicione a manteiga e o chocolate em seguida.
+                Mantenha o fogo médio e mexa sempre até que o fundo da panela comece a aparecer. Retire do fogo, despeje o brigadeiro numa superfície untada e deixe esfriar um pouco.
+                Quando o brigadeiro estiver morno, enrole em pequenas bolas e passe no chocolate granulado. Coloque os brigadeiros em forminhas antes de servir.
+            </p>
+        </div>
+        <div>
+
+            <h1>
+                Comentários
+            </h1>
+            <div class="comentarios">
+                    <div class="comentario">
+                        <h4 class="usuario">Antônio</h4>
+                        <span class="icon">★★★★★</span>
+                        <br>
+                        Delicioso!
+                    </div>
+
+                    <div class="comentario">
+                        <h4 class="usuario">João</h4>
+                        <span class="icon">★★★★★</span>
+                        <br>
+                        Muito bom!!
+                    </div>
+            </div>
+
+            <div class="deixarComentario">
+                <h1>
+                    Deixe seu comentário
+                </h1>
+                <form>
+
+                    <textarea class="form-control" style="min-width: 100% placeholder="Escreva seu comentário!"></textarea>
+                        <label>
+                            <input type="radio" name="avaliacao" value="1" />
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="avaliacao" value="2" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="avaliacao" value="3" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="avaliacao" value="4" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="avaliacao" value="5" />
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                            <span class="icon">★</span>
+                        </label>
+                    <br>
+                    <input type="submit" value="Enviar">
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <br/>
+</div>
+
+    <aside role="complementary" style="background-color:#E3F2FD" class="borda col-md-4">
+            <p>
+            	<br />
+            	<h2>Receitas</h2>
+            			<a href="">Receitas</a><br />
+            			<a href="">+ Lidas</a><br />
+            			<a href="">Massas</a><br />
+            			<a href="">Peixes</a><br />
+            			<a href="">Carnes</a><br />
+            		
+            	
+            </p>
+        </aside>
+    </div>
+    <footer class="row">
+        
+    </footer>
+
+
+</body>
+</html>
