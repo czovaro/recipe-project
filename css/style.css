@@ -1,0 +1,43 @@
+body {
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    line-height: 1.5625;
+    color: #575755;
+    background-color: #F4F4F4;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+  font-family: 'Roboto', sans-serif;
+    margin-top: 25px;
+    margin-bottom: 12.5px;
+    font-weight: 100;
+}
+
+
+nav{
+box-shadow: 0 3px 10px rgba(0,0,0,.17);
+}
+
+nav a{
+	font-size:16px;
+
+}
+
+
+.borda {
+
+height: auto !important; 
+margin-top: 5px;
+-moz-border-radius:7px;
+-webkit-border-radius:7px;
+ border-radius:7px;
+ box-shadow: 0 3px 10px rgba(0,0,0,.17);
+min-height:860px;
+}
