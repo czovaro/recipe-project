@@ -3,6 +3,7 @@
 
 <head>
   <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -18,14 +19,31 @@
       firebase.initializeApp(config);
 
     });
-    function singUp(){
+    async function singUp(){
       var email = $('#email').val();
       var password = $('#password').val();
       var confirm_password = $('#confirm_password').val();
+      var name = $('#name').val();
       if (password == confirm_password){
-        firebase.auth().createUserWithEmailAndPassword(email, password);
-        console.log("created!");
-        window.location.href = "login.html";
+        await firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+          console.log("Created!");
+          // MENSAGEM SUCESSO
+        }).catch(function(error) {
+          console.log(error.code, error.message);
+          // MENSAGEM ERRO
+        });
+
+        var user = firebase.auth().currentUser;
+        if (user){
+          console.log(name, phone);
+          user.updateProfile({
+            displayName: name
+          }).catch(function(error) {
+            console.log(error.code, error.message);
+          });
+        }
+        
+        // window.location.href = "login.html";
       } else {
         console.log("Different passwords!");
       }
@@ -89,7 +107,7 @@
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Nome</label>
 
-                                    <input class="form-control" type="text" placeholder="Seu nome" id="example-text-input">
+                                    <input class="form-control" type="text" placeholder="Seu nome" id="name">
 
                                 </div>
 
@@ -121,7 +139,7 @@
                                 <div class="col-md-6">
                                     <label for="example-text-input" class="col-4 col-form-label">Telefone</label>
 
-                                    <input class="form-control" type="text" placeholder="(99)9999-9999" id="example-text-input">
+                                    <input class="form-control" type="text" placeholder="(99)9999-9999" id="phone">
                                 </div>
                             </div>
 
