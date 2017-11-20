@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 
+
     <meta charset="UTF-8">
 
 	<title>Sancooking</title>
@@ -19,6 +20,41 @@
     margin-left: 16.66%
 }
 </style>
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
+                authDomain: "recipe-project-sisweb.firebaseapp.com",
+                databaseURL: "https://recipe-project-sisweb.firebaseio.com",
+                projectId: "recipe-project-sisweb",
+                storageBucket: "recipe-project-sisweb.appspot.com",
+                messagingSenderId: "926144456222"
+            };
+            firebase.initializeApp(config);
+
+        });
+        async function novaReceita(){
+            var receita = $('#receita').val();
+            var descricao = $('#descricao').val();
+            var tempo = $('#tempo').val();
+            var porcoes = $('#porcoes').val();
+            var calorias = $('#calorias').val();
+            var instrucoes =$('#instrucoes').val();
+
+            var database = firebase.database();
+
+        }
+        function escreverReceita(receita, descricao, tempo, porcoes, calorias, instrucoes) {
+            firebase.database().ref('Receitas/' + receita).set({
+                //?
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -66,13 +102,8 @@
         <legend>Cadastro de Receita</legend>
             <div class="form-group row">
                 <div class="col-md-4">
-                    <label class="col-form-label">Autor: João Silva</label>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-4">
                     <label class="col-form-label">Nome da Receita</label>
-                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita">
+                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita" id="receita">
                 </div>
                 <div class="col-md-4">
                     <label class="col-form-label">Categoria da Receita</label>
@@ -98,21 +129,21 @@
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="col-form-label">Descrição da Receita</label>
-                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita"></textarea>
+                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita" id="descricao"></textarea>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-md-4">
                     <label class="col-form-label">Tempo de preparo</label>
-                    <input class="form-control" type="number" min="0" value="0">
+                    <input class="form-control" type="number" min="0" value="0" id="tempo">
                 </div>
                 <div class="col-md-4">
                     <label class="col-form-label">Porções</label>
-                    <input class="form-control" type="number" min="0" value="0">
+                    <input class="form-control" type="number" min="0" value="0" id="porcoes">
                 </div>
                 <div class="col-md-4">
                     <label class="col-form-label">Valor nutricional (calorias)</label>
-                    <input class="form-control" type="number" min="0" value="0">
+                    <input class="form-control" type="number" min="0" value="0" id="calorias">
                 </div>
             </div>
             <div class="card">
@@ -151,7 +182,7 @@
             <div class="form-group row">
                 <div class="col-md-12">
                     <label class="col-form-label">Instruções de preparo</label>
-                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita"></textarea>
+                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita" id="instrucoes"></textarea>
                 </div>
             </div>
             <div class="form-group row">
