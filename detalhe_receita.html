@@ -4,10 +4,11 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sidesimples.css">
 
     <meta charset="UTF-8">
-
-	<title>Sancooking</title>
+    
+    <title>Sancooking</title>
 <style>
 .custom-file-control::before{
     content: "Selecionar"
@@ -22,11 +23,11 @@
 </head>
 
 <body>
-	<header><nav class="navbar navbar-light bg-light">
-  	<a class="navbar-brand" href="#">
+    <header><nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
     <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    	SancaCooking - O maior site de receitas do interior paulista!
-  	</a>
+        SancaCooking - O maior site de receitas do interior paulista!
+    </a>
 </nav></header>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
     <a class="navbar-brand" href="#"></a>
@@ -58,10 +59,10 @@
 </nav>
 
 <div class="row">
+    <div class="col-md-1"></div>
     <div role="main" class="col-md-8">
     <div class="container">
-
-
+    <br>
         <div itemscope itemtype="http://schema.org/Recipe">
 
             <div class="container" style="background-color:#F7F7F7;" id="tourpackages-carousel">
@@ -170,7 +171,7 @@
             </p>
         </div>
         <div>
-
+        <hr/>
             <h1>
                 Comentários
             </h1>
@@ -181,7 +182,7 @@
                         <br>
                         Delicioso!
                     </div>
-
+                    <hr/>
                     <div class="comentario">
                         <h4 class="usuario">João</h4>
                         <span class="icon">★★★★★</span>
@@ -196,7 +197,7 @@
                 </h1>
                 <form>
 
-                    <textarea class="form-control" style="min-width: 100% placeholder="Escreva seu comentário!"></textarea>
+                    <textarea class="form-control" style="min-width: 100%" placeholder="Escreva seu comentário!"></textarea>
                         <label>
                             <input type="radio" name="avaliacao" value="1" />
                             <span class="icon">★</span>
@@ -240,18 +241,55 @@
     <br/>
 </div>
 
-    <aside role="complementary" style="background-color:#E3F2FD" class="borda col-md-4">
-            <p>
-            	<br />
-            	<h2>Receitas</h2>
-            			<a href="">Receitas</a><br />
-            			<a href="">+ Lidas</a><br />
-            			<a href="">Massas</a><br />
-            			<a href="">Peixes</a><br />
-            			<a href="">Carnes</a><br />
-            		
-            	
-            </p>
+           <div class="col-md-1"></div>
+        <aside role="complementary" class="borda col-md-2">
+        <!-- Sidebar -->
+        <div id="sidebar">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <h3>
+                        Categorias
+                    </h3>
+                </li>
+                <li>
+                    <a href="#">Bolos e Tortas</a>
+                </li>
+                <li>
+                    <a href="#">Carnes</a>
+                </li>
+                <li>
+                    <a href="#">Aves</a>
+                </li>
+                <li>
+                    <a href="#">Peixes e Frutos do Mar</a>
+                </li>
+                <li>
+                    <a href="#">Saladas e Molhos</a>
+                </li>
+                <li>
+                    <a href="#">Sopas</a>
+                </li>
+                <li>
+                    <a href="#">Massas</a>
+                </li>
+                <li>
+                    <a href="#">Bebidas</a>
+                </li>
+                <li>
+                    <a href="#">Doces e Sobremesas</a>
+                </li>
+                <li>
+                    <a href="#">Lanches</a>
+                </li>
+                <li>
+                    <a href="#">Alimentação Saudável</a>
+                </li>         
+                <li>
+                    <a href="#">Kids</a>
+                </li>                              
+            </ul>
+
+</div>
         </aside>
     </div>
     <footer class="row">
