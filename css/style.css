@@ -42,3 +42,11 @@ margin-top: 5px;
 min-height:860px;
 }
 
+.bg{
+    background-color:#F7F7F7;
+}
+
+.imgsize{
+    height: 280px; 
+    width:280px;
+}
