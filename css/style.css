@@ -30,6 +30,10 @@ nav a{
 
 }
 
+.imgsize{
+    height: 280px; 
+    width:280px;
+}
 
 .borda {
 
@@ -46,7 +50,27 @@ min-height:860px;
     background-color:#F7F7F7;
 }
 
-.imgsize{
-    height: 280px; 
-    width:280px;
+
+.imagem{
+    display: block;
+    width: 100%;
+}
+.foto {
+    width: 25%;
+    text-align: center;
+}
+
+.custom-file-control::before{
+    content: "Selecionar"
+}
+
+.custom-file-control::after{
+    content: "Escolha uma ou mais imagens..."
+}
+.offset-2{
+    margin-left: 16.66%
+}
+
+.navbg{
+    background-color: #e3f2fd;
 }
