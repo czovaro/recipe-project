@@ -1,267 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/sidesimples.css">
-
-
-    <meta charset="UTF-8">
-
-	<title>Sancooking</title>
-<style>
-.custom-file-control::before{
-    content: "Selecionar"
-}
-.custom-file-control::after{
-    content: "Escolha uma ou mais imagens..."
-}
-.offset-2{
-    margin-left: 16.66%
-}
-</style>
-
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
-                authDomain: "recipe-project-sisweb.firebaseapp.com",
-                databaseURL: "https://recipe-project-sisweb.firebaseio.com",
-                projectId: "recipe-project-sisweb",
-                storageBucket: "recipe-project-sisweb.appspot.com",
-                messagingSenderId: "926144456222"
-            };
-            firebase.initializeApp(config);
-
-        });
-        async function novaReceita(){
-            var receita = $('#receita').val();
-            var descricao = $('#descricao').val();
-            var tempo = $('#tempo').val();
-            var porcoes = $('#porcoes').val();
-            var calorias = $('#calorias').val();
-            var instrucoes =$('#instrucoes').val();
-
-            var database = firebase.database();
-
-        }
-        function escreverReceita(receita, descricao, tempo, porcoes, calorias, instrucoes) {
-            firebase.database().ref('Receitas/' + receita).set({
-                //?
+    <head>
+        <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/sidesimples.css">
+        <meta charset="UTF-8">
+        <title>Sancooking</title>
+        <style>
+            .custom-file-control::before{
+            content: "Selecionar"
+            }
+            .custom-file-control::after{
+            content: "Escolha uma ou mais imagens..."
+            }
+            .offset-2{
+            margin-left: 16.66%
+            }
+        </style>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                // Initialize Firebase
+                var config = {
+                    apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
+                    authDomain: "recipe-project-sisweb.firebaseapp.com",
+                    databaseURL: "https://recipe-project-sisweb.firebaseio.com",
+                    projectId: "recipe-project-sisweb",
+                    storageBucket: "recipe-project-sisweb.appspot.com",
+                    messagingSenderId: "926144456222"
+                };
+                firebase.initializeApp(config);
+            
             });
-        }
-    </script>
-</head>
-
-<body>
-	<header><nav class="navbar navbar-light bg-light">
-  	<a class="navbar-brand" href="#">
-    <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    	SancaCooking - O maior site de receitas do interior paulista!
-  	</a>
-</nav></header>
-  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="#"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarColor03">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">+ Lidas <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Melhores Receitas</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Relacionados</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Cadastro</a>
-        </li>
-      </ul>
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-</nav>
-
-<div class="row">
-    <div class="col-md-1"></div>
-    <div role="main" class="col-md-8">
-    <div class="container">
-    <br />
-    <form>
-        <fieldset>
-        <legend>Cadastro de Receita</legend>
-            <div class="form-group row">
-                <div class="col-md-4">
-                    <label class="col-form-label">Nome da Receita</label>
-                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita" id="receita">
-                </div>
-                <div class="col-md-3">
-                    <label class="col-form-label">Categoria da Receita</label>
-                    <select class="custom-select">
-                        <option value="">Selecione uma categoria</option>
-                        <option value="massas">Massas</option>
-                        <option value="peixes">Peixes</option>
-                        <option value="carnes">Carnes</option>
-                    </select>
-                </div>
-                <div class="col-md-3">
-                    <label class="col-form-label">Método de cozimento</label>
-                    <select class="custom-select">
-                        <option value="">Selecione um método</option>
-                        <option value="frito">Frito</option>
-                        <option value="assado">Assado</option>
-                        <option value="grelhado">Grelhado</option>
-                        <option value="cozido">Cozido</option>
-                        <option value="refogado">Refogado</option>
-                    </select>
-                </div>
+            async function novaReceita(){
+                var receita = $('#receita').val();
+                var descricao = $('#descricao').val();
+                var tempo = $('#tempo').val();
+                var porcoes = $('#porcoes').val();
+                var calorias = $('#calorias').val();
+                var instrucoes =$('#instrucoes').val();
+            
+                var database = firebase.database();
+            
+            }
+            function escreverReceita(receita, descricao, tempo, porcoes, calorias, instrucoes) {
+                firebase.database().ref('Receitas/' + receita).set({
+                    //?
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                SancaCooking - O maior site de receitas do interior paulista!
+                </a>
+            </nav>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">+ Lidas <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Melhores Receitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Relacionados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cadastro</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="col-form-label">Descrição da Receita</label>
-                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita" id="descricao"></textarea>
+        </nav>
+        </nav>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div role="main" class="col-md-8">
+                <div class="container">
+                    <br />
+                    <form>
+                        <fieldset>
+                            <legend>Cadastro de Receita</legend>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label class="col-form-label">Nome da Receita</label>
+                                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita" id="receita">
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="col-form-label">Categoria da Receita</label>
+                                    <select class="custom-select">
+                                        <option value="">Selecione uma categoria</option>
+                                        <option value="massas">Massas</option>
+                                        <option value="peixes">Peixes</option>
+                                        <option value="carnes">Carnes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label class="col-form-label">Método de cozimento</label>
+                                    <select class="custom-select">
+                                        <option value="">Selecione um método</option>
+                                        <option value="frito">Frito</option>
+                                        <option value="assado">Assado</option>
+                                        <option value="grelhado">Grelhado</option>
+                                        <option value="cozido">Cozido</option>
+                                        <option value="refogado">Refogado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="col-form-label">Descrição da Receita</label>
+                                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita" id="descricao"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4">
+                                    <label class="col-form-label">Tempo de preparo</label>
+                                    <input class="form-control" type="number" min="0" value="0" id="tempo">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label">Porções</label>
+                                    <input class="form-control" type="number" min="0" value="0" id="porcoes">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-form-label">Valor nutricional (calorias)</label>
+                                    <input class="form-control" type="number" min="0" value="0" id="calorias">
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header">Ingredientes</div>
+                                <div class="card-block">
+                                    <div class="form-group row">
+                                        <div class="col-md-4 offset-2">
+                                            <label class="col-form-label">Nome do ingrediente</label>
+                                            <input class="form-control" type="text" maxlength="50" value="" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label">Quantidade</label>
+                                            <input class="form-control" type="number" min="0" value="0" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label">Unidade</label>
+                                            <input class="form-control" type="text" maxlength="20" value="0" >
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-4 offset-2">
+                                            <label class="col-form-label">Nome do ingrediente</label>
+                                            <input class="form-control" type="text" maxlength="50" value="" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label">Quantidade</label>
+                                            <input class="form-control" type="number" min="0" value="0" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <label class="col-form-label">Unidade</label>
+                                            <input class="form-control" type="text" maxlength="20" value="0" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="col-form-label">Instruções de preparo</label>
+                                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita" id="instrucoes"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-12">
+                                    <label class="custom-file">
+                                    Imagens da receita
+                                    <input type="file" id="file" class="custom-file-input" multiple="multiple" accept="image/*">
+                                    <span class="custom-file-control">
+                                    </span>
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary">Enviar</button>
+                    </form>
                 </div>
+                <br />
+                <!-- identar daqui para baixo -->
             </div>
-            <div class="form-group row">
-                <div class="col-md-4">
-                    <label class="col-form-label">Tempo de preparo</label>
-                    <input class="form-control" type="number" min="0" value="0" id="tempo">
+            <br / >
+            <div class="col-md-1"></div>
+            <aside role="complementary" class="borda col-md-2">
+                <!-- Sidebar -->
+                <div id="sidebar">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                            <h3>
+                                Categorias
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="#">Bolos e Tortas</a>
+                        </li>
+                        <li>
+                            <a href="#">Carnes</a>
+                        </li>
+                        <li>
+                            <a href="#">Aves</a>
+                        </li>
+                        <li>
+                            <a href="#">Peixes e Frutos do Mar</a>
+                        </li>
+                        <li>
+                            <a href="#">Saladas e Molhos</a>
+                        </li>
+                        <li>
+                            <a href="#">Sopas</a>
+                        </li>
+                        <li>
+                            <a href="#">Massas</a>
+                        </li>
+                        <li>
+                            <a href="#">Bebidas</a>
+                        </li>
+                        <li>
+                            <a href="#">Doces e Sobremesas</a>
+                        </li>
+                        <li>
+                            <a href="#">Lanches</a>
+                        </li>
+                        <li>
+                            <a href="#">Alimentação Saudável</a>
+                        </li>
+                        <li>
+                            <a href="#">Kids</a>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-4">
-                    <label class="col-form-label">Porções</label>
-                    <input class="form-control" type="number" min="0" value="0" id="porcoes">
-                </div>
-                <div class="col-md-4">
-                    <label class="col-form-label">Valor nutricional (calorias)</label>
-                    <input class="form-control" type="number" min="0" value="0" id="calorias">
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header">Ingredientes</div>
-                <div class="card-block">
-                    <div class="form-group row">
-                        <div class="col-md-4 offset-2">
-                            <label class="col-form-label">Nome do ingrediente</label>
-                            <input class="form-control" type="text" maxlength="50" value="" >
-                        </div>
-                        <div class="col-md-2">
-                            <label class="col-form-label">Quantidade</label>
-                            <input class="form-control" type="number" min="0" value="0" >
-                        </div>
-                        <div class="col-md-2">
-                            <label class="col-form-label">Unidade</label>
-                            <input class="form-control" type="text" maxlength="20" value="0" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-md-4 offset-2">
-                            <label class="col-form-label">Nome do ingrediente</label>
-                            <input class="form-control" type="text" maxlength="50" value="" >
-                        </div>
-                        <div class="col-md-2">
-                            <label class="col-form-label">Quantidade</label>
-                            <input class="form-control" type="number" min="0" value="0" >
-                        </div>
-                        <div class="col-md-2">
-                            <label class="col-form-label">Unidade</label>
-                            <input class="form-control" type="text" maxlength="20" value="0" >
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="col-form-label">Instruções de preparo</label>
-                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita" id="instrucoes"></textarea>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-md-12">
-                    <label class="custom-file">
-                        Imagens da receita
-                        <input type="file" id="file" class="custom-file-input" multiple="multiple" accept="image/*">
-                        <span class="custom-file-control">
-                        </span>
-                    </label>
-                </div>
-            </div>
-        </fieldset>
-        <button type="submit" class="btn btn-primary">Enviar</button>
-    </form>
-</div>
-<br />
-
-<!-- identar daqui para baixo -->
-</div>
-
-<br / >
-           <div class="col-md-1"></div>
-        <aside role="complementary" class="borda col-md-2">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <h3>
-                        Categorias
-                    </h3>
-                </li>
-                <li>
-                    <a href="#">Bolos e Tortas</a>
-                </li>
-                <li>
-                    <a href="#">Carnes</a>
-                </li>
-                <li>
-                    <a href="#">Aves</a>
-                </li>
-                <li>
-                    <a href="#">Peixes e Frutos do Mar</a>
-                </li>
-                <li>
-                    <a href="#">Saladas e Molhos</a>
-                </li>
-                <li>
-                    <a href="#">Sopas</a>
-                </li>
-                <li>
-                    <a href="#">Massas</a>
-                </li>
-                <li>
-                    <a href="#">Bebidas</a>
-                </li>
-                <li>
-                    <a href="#">Doces e Sobremesas</a>
-                </li>
-                <li>
-                    <a href="#">Lanches</a>
-                </li>
-                <li>
-                    <a href="#">Alimentação Saudável</a>
-                </li>         
-                <li>
-                    <a href="#">Kids</a>
-                </li>                              
-            </ul>
-
-</div>
-        </aside>
-    </div>
-    <footer class="row">
-        
-    </footer>
-
-
-</body>
+            </aside>
+        </div>
+        <footer class="row">
+        </footer>
+    </body>
 </html>

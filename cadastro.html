@@ -1,241 +1,204 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
-<head>
-  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
-        authDomain: "recipe-project-sisweb.firebaseapp.com",
-        databaseURL: "https://recipe-project-sisweb.firebaseio.com",
-        projectId: "recipe-project-sisweb",
-        storageBucket: "recipe-project-sisweb.appspot.com",
-        messagingSenderId: "926144456222"
-      };
-      firebase.initializeApp(config);
-
-    });
-    async function singUp(){
-      var email = $('#email').val();
-      var password = $('#password').val();
-      var confirm_password = $('#confirm_password').val();
-      var name = $('#name').val();
-      if (password == confirm_password){
-        await firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
-          console.log("Created!");
-          // MENSAGEM SUCESSO
-        }).catch(function(error) {
-          console.log(error.code, error.message);
-          // MENSAGEM ERRO
-        });
-
-        var user = firebase.auth().currentUser;
-        if (user){
-          console.log(name, phone);
-          user.updateProfile({
-            displayName: name
-          }).catch(function(error) {
-            console.log(error.code, error.message);
-          });
-        }
-        
-        // window.location.href = "login.html";
-      } else {
-        console.log("Different passwords!");
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/sidesimples.css">
-  <meta charset="UTF-8">
-
-  <title>Sancooking</title>
-</head>
-
-<body>
-
-    <header>
-        <nav class="navbar navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-    <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-      SancaCooking - O maior site de receitas do interior paulista!
-    </a>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function() {
+              // Initialize Firebase
+              var config = {
+                apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
+                authDomain: "recipe-project-sisweb.firebaseapp.com",
+                databaseURL: "https://recipe-project-sisweb.firebaseio.com",
+                projectId: "recipe-project-sisweb",
+                storageBucket: "recipe-project-sisweb.appspot.com",
+                messagingSenderId: "926144456222"
+              };
+              firebase.initializeApp(config);
+            
+            });
+            async function singUp(){
+              var email = $('#email').val();
+              var password = $('#password').val();
+              var confirm_password = $('#confirm_password').val();
+              var name = $('#name').val();
+              if (password == confirm_password){
+                await firebase.auth().createUserWithEmailAndPassword(email, password).then(function() {
+                  console.log("Created!");
+                  // MENSAGEM SUCESSO
+                }).catch(function(error) {
+                  console.log(error.code, error.message);
+                  // MENSAGEM ERRO
+                });
+            
+                var user = firebase.auth().currentUser;
+                if (user){
+                  console.log(name, phone);
+                  user.updateProfile({
+                    displayName: name
+                  }).catch(function(error) {
+                    console.log(error.code, error.message);
+                  });
+                }
+                
+                // window.location.href = "login.html";
+              } else {
+                console.log("Different passwords!");
+              }
+            }
+        </script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/sidesimples.css">
+        <meta charset="UTF-8">
+        <title>Sancooking</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                SancaCooking - O maior site de receitas do interior paulista!
+                </a>
+            </nav>
+        </header>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="recipe.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="cadastro.html">Novo cadastro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Melhores Receitas</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
         </nav>
-    </header>
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-        <div class="collapse navbar-collapse" id="navbarColor03">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="recipe.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="login.html">Login</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="cadastro.html">Novo cadastro</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Melhores Receitas</a>
-                </li>
-            </ul>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-    </nav>
-
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div role="main" class="col-md-8">
-            <section id="login">
-                <div class="container">
-                    <br />
-                    <form onsubmit="singUp(); return false">
+        </nav>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div role="main" class="col-md-8">
+                <section id="login">
+                    <div class="container">
+                        <br />
+                        <form onsubmit="singUp(); return false">
                         <fieldset>
                             <legend>Cadastro de Usuário</legend>
                             <div class="form-group row">
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Nome</label>
-
                                     <input class="form-control" type="text" placeholder="Seu nome" id="name">
-
                                 </div>
-
-
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-12 col-form-label">Data Nascimento</label>
-
                                     <input class="form-control" type="date" placeholder="99/99/9999" id="example-text-input">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Cidade</label>
-
                                     <input class="form-control" type="text" placeholder="Cidade" id="example-text-input">
                                 </div>
-
-
-
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Estado</label>
-
                                     <input class="form-control" type="text" placeholder="Estado" id="example-text-input">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-md-6">
                                     <label for="example-text-input" class="col-4 col-form-label">Telefone</label>
-
                                     <input class="form-control" type="text" placeholder="(99)9999-9999" id="phone">
                                 </div>
                             </div>
-
                             <div class="form-group row">
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Login</label>
-
                                     <input class="form-control" type="text" placeholder="exemplo@seuemail.com" id="email">
                                 </div>
-
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-4 col-form-label">Senha</label>
-
                                     <input class="form-control" type="password" placeholder="" id="password">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="example-text-input" class="col-12 col-form-label">Confirmação de senha</label>
-
                                     <input class="form-control" type="password" placeholder="" id="confirm_password">
                                 </div>
-
                             </div>
-
                             <button type="submit" id="submit" class="btn btn-primary">Enviar</button>
                             </legend>
                         </fieldset>
-                </div>
-                <!-- /.container -->
-            </section>
-
-
+                    </div>
+                    <!-- /.container -->
+                </section>
+                <br />
+            </div>
             <br />
-
+            <div class="col-md-1"></div>
+            <aside role="complementary" class="borda col-md-2">
+                <!-- Sidebar -->
+                <div id="sidebar">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                            <h3>
+                                Categorias
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="#">Bolos e Tortas</a>
+                        </li>
+                        <li>
+                            <a href="#">Carnes</a>
+                        </li>
+                        <li>
+                            <a href="#">Aves</a>
+                        </li>
+                        <li>
+                            <a href="#">Peixes e Frutos do Mar</a>
+                        </li>
+                        <li>
+                            <a href="#">Saladas e Molhos</a>
+                        </li>
+                        <li>
+                            <a href="#">Sopas</a>
+                        </li>
+                        <li>
+                            <a href="#">Massas</a>
+                        </li>
+                        <li>
+                            <a href="#">Bebidas</a>
+                        </li>
+                        <li>
+                            <a href="#">Doces e Sobremesas</a>
+                        </li>
+                        <li>
+                            <a href="#">Lanches</a>
+                        </li>
+                        <li>
+                            <a href="#">Alimentação Saudável</a>
+                        </li>
+                        <li>
+                            <a href="#">Kids</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
         </div>
-
-        <br />
-           <div class="col-md-1"></div>
-        <aside role="complementary" class="borda col-md-2">
-        <!-- Sidebar -->
-        <div id="sidebar">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <h3>
-                        Categorias
-                    </h3>
-                </li>
-                <li>
-                    <a href="#">Bolos e Tortas</a>
-                </li>
-                <li>
-                    <a href="#">Carnes</a>
-                </li>
-                <li>
-                    <a href="#">Aves</a>
-                </li>
-                <li>
-                    <a href="#">Peixes e Frutos do Mar</a>
-                </li>
-                <li>
-                    <a href="#">Saladas e Molhos</a>
-                </li>
-                <li>
-                    <a href="#">Sopas</a>
-                </li>
-                <li>
-                    <a href="#">Massas</a>
-                </li>
-                <li>
-                    <a href="#">Bebidas</a>
-                </li>
-                <li>
-                    <a href="#">Doces e Sobremesas</a>
-                </li>
-                <li>
-                    <a href="#">Lanches</a>
-                </li>
-                <li>
-                    <a href="#">Alimentação Saudável</a>
-                </li>         
-                <li>
-                    <a href="#">Kids</a>
-                </li>                              
-            </ul>
-
-</div>
-        </aside>
-    </div>
-
-
-    <footer class="row">
-
-    </footer>
-
-
-</body>
-
+        <footer class="row">
+        </footer>
+    </body>
 </html>
