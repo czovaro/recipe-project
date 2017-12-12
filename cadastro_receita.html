@@ -7,9 +7,23 @@
         <link rel="stylesheet" href="css/sidesimples.css">
         <meta charset="UTF-8">
         <title>SancaCooking - O maior site de receitas do interior paulista!</title>
+    <!-- jQuery (necessario para os plugins Javascript Bootstrap) -->
+    <script src="bootstrap/js/jquery-1.11.3.min.js"> </script> 
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
+    <script src="js/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="js/jquery-validation/dist/additional-methods.js"></script>
+
+        <!-- Script para validação de login -->
+        <script src="js/loginFuncoesComuns.js"></script>
+        <script src="js/cadastrarReceita.js"></script>
+        <script src="js/novoIngrediente.js"></script>
+        <script src="js/recipe.js"></script>
+
         <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
         <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <script>
             $(document).ready(function() {
                 // Initialize Firebase
@@ -56,7 +70,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarColor03">
+            <div class="collapse navbar-collapse" name="navbarColor03">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
                         <a class="nav-link" href="#">+ Lidas <span class="sr-only">(current)</span></a>
@@ -89,11 +103,11 @@
                             <div class="form-group row">
                                 <div class="col-md-4">
                                     <label class="col-form-label">Nome da Receita</label>
-                                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita" id="receita">
+                                    <input class="form-control" type="text" maxlength="50" placeholder="Digite o nome da receita" name="nomeReceitaField" >
                                 </div>
                                 <div class="col-md-3">
                                     <label class="col-form-label">Categoria da Receita</label>
-                                    <select class="custom-select">
+                                    <select name="categoriaField" class="custom-select" >
                                         <option value="">Selecione uma categoria</option>
                                         <option value="massas">Massas</option>
                                         <option value="peixes">Peixes</option>
@@ -102,7 +116,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <label class="col-form-label">Método de cozimento</label>
-                                    <select class="custom-select">
+                                    <select name="cozimentoField" class="custom-select" >
                                         <option value="">Selecione um método</option>
                                         <option value="frito">Frito</option>
                                         <option value="assado">Assado</option>
@@ -115,21 +129,21 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label class="col-form-label">Descrição da Receita</label>
-                                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita" id="descricao"></textarea>
+                                    <textarea class="form-control" rows="4" maxlength="300" placeholder="Escreva a descrição da receita" name="descricaoReceitaField" ></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-4">
-                                    <label class="col-form-label">Tempo de preparo</label>
-                                    <input class="form-control" type="number" min="0" value="0" id="tempo">
+                                    <label class="col-form-label">Tempo de preparo(em minutos)</label>
+                                    <input  class="form-control"  min="1" value="" name="tempoField">
                                 </div>
                                 <div class="col-md-4">
                                     <label class="col-form-label">Porções</label>
-                                    <input class="form-control" type="number" min="0" value="0" id="porcoes">
+                                    <input class="form-control"  min="1" value="" name="porcaoField" >
                                 </div>
                                 <div class="col-md-4">
-                                    <label class="col-form-label">Valor nutricional (calorias)</label>
-                                    <input class="form-control" type="number" min="0" value="0" id="calorias">
+                                    <label class="col-form-label">Valor nutricional(calorias)</label>
+                                    <input class="form-control"  min="1" value="" name="valornutriField" >
                                 </div>
                             </div>
                             <div class="card">
@@ -138,15 +152,15 @@
                                     <div class="form-group row">
                                         <div class="col-md-4 offset-2">
                                             <label class="col-form-label">Nome do ingrediente</label>
-                                            <input class="form-control" type="text" maxlength="50" value="" >
+                                            <input name="ingNameField" class="form-control" type="text" maxlength="50" value="" >
                                         </div>
                                         <div class="col-md-2">
                                             <label class="col-form-label">Quantidade</label>
-                                            <input class="form-control" type="number" min="0" value="0" >
+                                            <input name="ingQtdField" class="form-control"  min="0" value="0" >
                                         </div>
                                         <div class="col-md-2">
                                             <label class="col-form-label">Unidade</label>
-                                            <input class="form-control" type="text" maxlength="20" value="0" >
+                                            <input name="ingUnidField" class="form-control" type="text" maxlength="20" value="0" >
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -156,7 +170,7 @@
                                         </div>
                                         <div class="col-md-2">
                                             <label class="col-form-label">Quantidade</label>
-                                            <input class="form-control" type="number" min="0" value="0" >
+                                            <input class="form-control"  min="0" value="0" >
                                         </div>
                                         <div class="col-md-2">
                                             <label class="col-form-label">Unidade</label>
@@ -168,21 +182,21 @@
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label class="col-form-label">Instruções de preparo</label>
-                                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita" id="instrucoes"></textarea>
+                                    <textarea class="form-control" rows="10" maxlength="800" placeholder="Escreva as intruções de preparo da receita" name="infoField" ></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <div class="col-md-12">
                                     <label class="custom-file">
                                     Imagens da receita
-                                    <input type="file" id="file" class="custom-file-input" multiple="multiple" accept="image/*">
+                                    <input type="file" name="file" class="custom-file-input" multiple="multiple"  accept="image/*">
                                     <span class="custom-file-control">
                                     </span>
                                     </label>
                                 </div>
                             </div>
                         </fieldset>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" class="btn btn-primary" name="submit">Enviar</button>
                     </form>
                 </div>
                 <br />
@@ -192,7 +206,7 @@
             <div class="col-md-1"></div>
             <aside role="complementary" class="borda col-md-2">
                 <!-- Sidebar -->
-                <div id="sidebar">
+                <div name="sidebar">
                     <ul class="sidebar-nav">
                         <li class="sidebar-brand">
                             <h3>
