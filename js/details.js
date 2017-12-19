@@ -105,11 +105,11 @@ function addComentaryToHTML(newComment){
 
 	for (var i = 0; i<5; i++){
 		var newRating =$("<i></i>");
-		newRating.addClass("glyphicon");
+		newRating.addClass("fa");
 		if (i<newComment.rating){
-			newRating.addClass("glyphicon-star");
+			newRating.addClass("fa-star");
 		}else {
-			newRating.addClass("glyphicon-star-empty");
+			newRating.addClass("fa-star-o");
 		}
 		newRating.appendTo(rating);
 	}

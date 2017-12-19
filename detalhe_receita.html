@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
+
         <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/sidesimples.css">
@@ -15,13 +15,23 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+             <script src="bootstrap-rating/bootstrap-rating-input.min.js"></script>
+             <script defer src="https://use.fontawesome.com/releases/v5.0.1/js/all.js"></script>
 
-      <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
-      <script src="jquery-validation/dist/jquery.validate.js"></script>
-      <script src="jquery-validation/dist/additional-methods.js"></script>
 
 
       <script src="js/exportXML.js"></script>
+
+      <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
+      <script src="js/jquery-validation/dist/jquery.validate.js"></script>
+      <script src="js/jquery-validation/dist/additional-methods.js"></script>
+
+
+      <!-- Funcoes comuns -->
+      <script src="js/loginFuncoesComuns.js"></script>
+      <script src="js/details.js"></script>
+      <script src="js/recipe.js"></script>
+      <script src="js/starRating.js"></script>
 
     </head>
     <body>
@@ -162,48 +172,53 @@
                         <h2>Modo de preparo</h2>
                         <span itemprop="recipeInstructions">Despeje o leite condensado numa panela media em fogo medio. Adicione a manteiga e o chocolate em seguida.Mantenha o fogo medio e mexa sempre ate que o fundo da panela comece a aparecer. Retire do fogo, despeje o brigadeiro numa superficie untada e deixe esfriar um pouco.Quando o brigadeiro estiver morno, enrole em pequenas bolas e passe no chocolate granulado. Coloque os brigadeiros em forminhas antes de servir.</span>
                     </div>
+                    <textarea id="xmlOutput" cols="45" rows="10"></textarea><br>
                     <a href="javascript:void(0)" id="exportLink">Clique aqui para exportar a receita em XML</a>
-                    <textarea id="xmlOutput" cols="80" rows="30"></textarea>
                     <div>
                         <hr/>
-                        <div id="coments">
-                 <form id="coments_form" role="form">
-                    <h3> Comentários e Avaliações </h3>
-                    <p> Deixe aqui seu comentário sobre a receita aqui </p>
-                    <!-- Login (email)-->
+
+
+
+
+               <div id="coments">
+                   <form id="coments_form" role="form">
+                      <h3> Comentários e Avaliações </h3>
+                      <p> Deixe aqui seu comentário sobre a receita aqui </p>
+                      <!-- Login (email)-->
+                      <div class="form-group">
+                         <!-- The <label> tag defines a label for an <input> element. -->
+                         <label for="emailField">E-mail: </label>
+                         <!-- The <input> tag specifies an input field where the user can enter data.-->
+                         <input type="text" id="emailField"  name="emailField" class="form-control"> 
+                      </div>
+
                     <div class="form-group">
-                       <!-- The <label> tag defines a label for an <input> element. -->
-                       <label for="emailField">E-mail: </label>
-                       <!-- The <input> tag specifies an input field where the user can enter data.-->
-                       <input type="text" id="emailField"  name="emailField" class="form-control"> 
+                        <!-- Campo de senha-->
+                        <label for="passwordField">Senha: </label> 
+                        <input type="password" id="passwordField" name="passwordField" class="form-control"> 
                     </div>
 
-                  <div class="form-group">
-                      <!-- Campo de senha-->
-                      <label for="passwordField">Senha: </label> 
-                      <input type="password" id="passwordField" name="passwordField" class="form-control"> 
-                  </div>
+                    <div class="form-group">
+                        <label for="comentField">Comentário: </label> 
+                        <textarea rows="5" id="comentField" name="comentField" class="form-control">  </textarea>
+                    </div>
+                    <!--  Classificacao da receita no formulário de comentario-->
+                    <div class="form-group">
+                        <label for="ratingField">Qual a sua nota para a receita? </label> 
+                        
+                        <input type="number" name="ratingField" id="ratingField" class="rating" />
+                    </div>
 
-                  <div class="form-group">
-                      <label for="comentField">Comentário: </label> 
-                      <textarea rows="5" id="comentField" name="comentField" class="form-control">  </textarea>
-                  </div>
-                  <!--  Classificacao da receita no formulário de comentario-->
-                  <div class="form-group">
-                      <label for="ratingField">Qual a sua nota para a receita? </label> 
-                      <input type="number" name="ratingField" id="ratingField" class="rating" />
-                  </div>
-                  <button type="submit" class="btn btn-default" id="submit">Enviar comentário</button>
-                 </form>
-              </div>
-
-              <div id="coments_list">
-                <h3> Comentários </h3>
-                <div id="clist"  class="list-group">
-                  <!-- Aqui serão adicionados os novos comentários.-->
+                    <button type="submit" class="btn btn-default" id="submit">Enviar comentário</button>
+                   </form>
                 </div>
-              </div>
 
+                <div id="coments_list">
+                  <h3> Comentários </h3>
+                  <div id="clist"  class="list-group">
+                    <!-- Aqui serão adicionados os novos comentários.-->
+                  </div>
+                </div>
 
 
                     </div>
@@ -262,5 +277,6 @@
         </div>
         <footer class="row">
         </footer>
+
     </body>
 </html>

@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="css/sidesimples.css">
         <!-- BootstrapDatePicker -->
     <link id="bsdp-css" href="bootstrap-datepicker/css/datepicker3.css" rel="stylesheet">
+
         <meta charset="UTF-8">
 
         <title>SancaCooking - O maior site de receitas do interior paulista!</title>
@@ -22,6 +23,7 @@
     <script src="js/cadastrarReceita.js"></script>
     <script src="js/novoIngrediente.js"></script>
     <script src="js/recipe.js"></script>
+    <script src="js/bootstrap-rating/bootstrap-rating-input.min.js"></script>
 
     <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
     <script src="js/jquery-validation/dist/jquery.validate.js"></script>
@@ -72,7 +74,7 @@
 <div class="container-fluid">
   <!-- Tag principal onde deve aparecer os itens do site -->
   <div class="row main-container">
-    <div role="main" class="col-md-8">
+    <div role="main" class="col-md-10">
         <form role="form" id="receita_form" target="_self" action="recipe.html">
             <h2>Cadastro de Nova Receita </h2>
             <h3>Entre com os dados para cadastrar uma nova receita</h3>
@@ -175,25 +177,59 @@
                 <h5 for="infoField">Informação de Preparo: </h5>
                 <textarea id="infoField" name="infoField" class="form-control" maxlength="800"></textarea>
             </div></div>
-            <button type="submit" class="btn btn-default" id="submit">Adicionar nova receita</button>
+            <button type="submit" class="btn btn-primary btn-lg" id="submit">Adicionar nova receita</button>
         </form>
     
     </div>
 
-        <aside role="complementary" style="background-color:#E3F2FD" class="borda col-md-4">
-            <p>
-                <br />
-                <h2>Receitas</h2>
-
-                <a href="">Receitas</a><br />
-                <a href="">+ Lidas</a><br />
-                <a href="">Massas</a><br />
-                <a href="">Peixes</a><br />
-                <a href="">Carnes</a><br />
-
-
-            </p>
-        </aside>
+            <aside role="complementary" class="borda col-md-2">
+                <!-- Sidebar -->
+                <div id="sidebar">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                              <h3>
+                                Categorias
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="massas.html">Bolos e Tortas</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Carnes</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Aves</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Peixes e Frutos do Mar</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Saladas e Molhos</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Sopas</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Massas</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Bebidas</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Doces e Sobremesas</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Lanches</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Alimentação Saudável</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Kids</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
 
   </div>
 
