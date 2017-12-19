@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
@@ -6,6 +6,13 @@
         <link rel="stylesheet" href="css/sidesimples.css">
         <meta charset="UTF-8">
         <meta name="description" content="O portal Sancooking é o maior site de receitas do interior paulista. Confira as melhores receitas aqui! Bolos, Carnes, Receitas de Natal e Receitas de Ano novo.">
+    <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+
+
+       <!-- Script para validação de login-->
+    <script src="js/loginFuncoesComuns.js"></script>
         <title>Sancooking - O maior site de receitas do interior paulista!</title>
     </head>
     <body>
@@ -36,6 +43,8 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Melhores Receitas</a>
                     </li>
+
+
                 </ul>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -48,7 +57,8 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div role="main" class="col-md-8">
-                        <h1> Seja bem-vindo ao Sancooking!</h1>
+                        <h1> Seja bem-vindo ao Sancooking:</h1><h2><a id="novo_login" href="login.html"><p> Login.</p></a>        
+          </a>  </h1>
                 <br />
                 <div class="container bg" id="tourpackages-carousel">
                     <h2>Massas e Italiano</h2>
@@ -56,7 +66,7 @@
                     <div class="row">
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/carbo.jpg" alt="Foto de macarrão ao pomodoro">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/carbo.jpg" alt="Foto de macarrão ao pomodoro">
                                 <div class="caption">
                                     <h4>Pasta al pomodoro</h4>
                                     <p>Deliciosa massa fresca ao molho de tomates.</p>
@@ -66,7 +76,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" class="img-small" src="assets/recipes/aglio.jpg" alt="Foto de Macarrão Alho e Óleo">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/aglio.jpg" alt="Foto de Macarrão Alho e Óleo">
                                 <div class="caption">
                                     <h4>Spaghetti aglio olio</h4>
                                     <p>Delicioso espagueti feito com massa fresca, ao alho e óleo. Simples, porém muito gostoso, um clássico.</p>
@@ -76,7 +86,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/fetu.jpg" alt="Foto de um Fetuccine Alfredo">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/fetu.jpg" alt="Foto de um Fetuccine Alfredo">
                                 <div class="caption">
                                     <h4>Fettucine Alfredo</h4>
                                     <p>Massa fresca do tipo Fettucine. É um prato feito de fettuccine com queijo Parmesão e manteiga. À medida que o queijo derrete, ele emulsifica os líquidos para formar uma cobertura leve e rica sobre a massa.</p>
@@ -91,7 +101,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/karee.png" alt="Foto de um Karê">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/karee.png" alt="Foto de um Karê">
                                 <div class="caption">
                                     <h4>Karee Raisu</h4>
                                     <p>Cozido de legumes e carne com molho de curry e arroz. Prato delicioso típico japonês.</p>
@@ -101,7 +111,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" class="img-small" src="assets/recipes/natto.jpg" alt="Foto de Nattô">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" class="img-small" src="assets/recipes/natto.jpg" alt="Foto de Nattô">
                                 <div class="caption">
                                     <h4>Nattô</h4>
                                     <p>Natto é um alimento tradicional japonês feito de soja fermentada, popularmente degustado no café da manhã. Sendo rico em proteínas, o natto foi uma fonte vital de nutrição no Japão feudal.</p>
@@ -111,7 +121,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/lamen.jpg" alt="Foto de Lámen">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/lamen.jpg" alt="Foto de Lámen">
                                 <div class="caption">
                                     <h4>Lámen</h4>
                                     <p>Lámen, ou rāmen é um alimento japonês. Um prato de lámen normalmente é composto por um tipo de macarrão chinês, uma sopa com caldo à base de restos de porco ou peixe.</p>
@@ -126,7 +136,7 @@
                     <div class="row">
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/brigadeiro.jpg" alt="Foto de um brigadeiro">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/brigadeiro.jpg" alt="Foto de um brigadeiro">
                                 <div class="caption">
                                     <h4>Brigadeiro</h4>
                                     <p>O brigadeiro é um doce típico da culinária brasileira, de origem paulista, o qual rapidamente se difundiu pelo resto do país, tornando-se comum em todo o país a sua presença em festas de aniversário, junto com doces como o cajuzinho e o beijinho.</p>
@@ -136,7 +146,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" class="img-small" src="assets/recipes/panna.jpg" alt="Foto de uma Pannacotta">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" class="img-small" src="assets/recipes/panna.jpg" alt="Foto de uma Pannacotta">
                                 <div class="caption">
                                     <h4>Pannacotta</h4>
                                     <p>A panacota ou panna cotta é uma sobremesa típica da região italiana do Piemonte, elaborada a partir de nata de leite, açúcar, gelatina e especiarias, especialmente canela.</p>
@@ -146,7 +156,7 @@
                         </div>
                         <div class="col-xs-10 col-sm-6 col-md-4">
                             <div class="thumbnail">
-                                <img class="imgsize" src="assets/recipes/pavlova.jpg" alt="Foto de uma Pavlova">
+                                <img onclick="location.href='recipeDetail.html'" class="imgsize pointerLink" src="assets/recipes/pavlova.jpg" alt="Foto de uma Pavlova">
                                 <div class="caption">
                                     <h4>Pavlova</h4>
                                     <p>A pavlova é uma sobremesa em forma de bolo e a base de merengue cujo nome é uma homenagem à bailarina russa Anna Pavlova</p>

@@ -1,36 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script>
-            $(document).ready(function() {
-              // Initialize Firebase
-              var config = {
-                apiKey: "AIzaSyCOegWim3SxILxD_wzr28BmWclHBoBZtLo",
-                authDomain: "recipe-project-sisweb.firebaseapp.com",
-                databaseURL: "https://recipe-project-sisweb.firebaseio.com",
-                projectId: "recipe-project-sisweb",
-                storageBucket: "recipe-project-sisweb.appspot.com",
-                messagingSenderId: "926144456222"
-              };
-              firebase.initializeApp(config);
-            
-            });
-            
-            function singIn(){
-              var email = $('#email').val();
-              var password = $('#password').val();
-              firebase.auth().signInWithEmailAndPassword(email, password);
-            }
-        </script>
+
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/sidesimples.css">
         <meta charset="UTF-8">
         <title>SancaCooking - O maior site de receitas do interior paulista!</title>
+          <!-- Script para validação de login-->
+    <script src="js/loginFuncoesComuns.js"></script>
+    <script src="js/loginValidation.js"></script>
+
+   <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
+    <script src="js/jquery-validation/dist/jquery.validate.js"></script>
+  <script src="js/jquery-validation/dist/additional-methods.js"></script>
     </head>
+
     <body>
         <header>
             <nav class="navbar navbar-light bg-light">
@@ -79,17 +66,18 @@
                                     <br />
                                     <h1>Entre com sua conta</h1>
                                     <br/>
-                                    <form onsubmit="singIn(); return false" role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                                    <form role="form" id="login_form" target="_self" action="recipe.html" method="POST" autocomplete="on">
                                         <div class="form-group">
-                                            <label for="email" class="sr-only">Email</label>
-                                            <input type="email" name="email" id="email" class="form-control" placeholder="alguem@exemplo.com">
+                                            <label for="emailField" class="sr-only">Email</label>
+                                            <input type="email" id="emailField"  name="emailField"  class="form-control" placeholder="alguem@exemplo.com">
                                         </div>
                                         <div class="form-group">
-                                            <label for="key" class="sr-only">Login Sancooking</label>
-                                            <input type="password" name="key" id="password" class="form-control" placeholder="Senha">
+                                            <label for="passwordField" class="sr-only">Login Sancooking</label>
+                                            <input type="password" id="passwordField" name="passwordField" class="form-control" placeholder="Senha">
+
                                         </div>
                                         <input type="submit" id="btn-login" class="btn btn-primary btn-lg" value="Entrar">
-                                        <input type="button" onclick="location.href='cadastro.html'" id="btn-login" class="btn btn-primary btn-lg" value="Sou novo aqui">
+                                        <input type="button" onclick="location.href='cadastro.html'" id="btn-new" class="btn btn-primary btn-lg" value="Sou novo aqui">
                                     </form>
                                     <br /><a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Esqueceu sua Senha?</a>
                                 </div>

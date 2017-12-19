@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/sidesimples.css">
+        <meta charset="UTF-8">
+
+
+        <!-- BootstrapDatePicker -->
+        <link id="bsdp-css" href="bootstrap-datepicker/css/datepicker3.css" rel="stylesheet">
+        <meta charset="UTF-8">
+
+        <title>SancaCooking - O maior site de receitas do interior paulista!</title>
+
+    <script src="https://code.jquery.com/jquery-1.8.0.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+     <script src="http://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="Stylesheet" type="text/css" />
+        <meta name="description" content="Sancooking apresenta uma receita de brigadeiro deliciosíssima. O melhor brigadeiro do mundo só aqui, no Sancooking">
+      <!-- Plugin para validacao de campo em jquery (Jquery Validation) -->
+      <script src="js/jquery-validation/dist/jquery.validate.js"></script>
+      <script src="js/jquery-validation/dist/additional-methods.js"></script>
+
+      <script src="js/loginFuncoesComuns.js"></script>
+      <script src="js/detalheReceita.js"></script>
+      <script src="js/exportarReceita.js"></script>
+      <script src="js/x2js.js"></script>
+      <script src="js/fileSaver.js"></script>
+      <script src="js/blob.js"></script>
+      <script src="js/json2.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                <img src="assets/brand/sclogo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                SancaCooking - O maior site de receitas do interior paulista!
+                </a>
+            </nav>
+        </header>
+        <nav class="navbar navbg navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">+ Lidas <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Melhores Receitas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Relacionados</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Cadastro</a>
+                    </li>
+                </ul>
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+        </nav>
+ <div class="container-fluid">
+  <!-- Tag principal onde deve aparecer os itens do site -->
+  <div class="row main-container">
+    <div role="main" class="col-md-9">
+      <h2>JSON da receita</h2>
+      <div>
+
+            <textarea id="json">
+            </textarea>
+
+      </div>
+<input type="button" onclick="if(json.value!='')runit()" value="Converter para XML" id="toxml">
+<input type="button" onclick="saveFile(document.getElementById('json').value,'json')" value="Baixar JSON" id="x">
+
+      <h2>XML da receita</h2>
+      <div>
+          <pre>
+            <code id="xml">
+            </code>
+          </pre>
+      </div>
+    </div>
+
+
+
+    <div role="complementary" class="col-md-3">
+    </div>
+
+  </div>
+                    </div>
+
+
+            <div class="col-md-1"></div>
+            <aside role="complementary" class="borda col-md-2">
+                <!-- Sidebar -->
+                <div id="sidebar">
+                    <ul class="sidebar-nav">
+                        <li class="sidebar-brand">
+                            <h3>
+                                Categorias
+                            </h3>
+                        </li>
+                        <li>
+                            <a href="massas.html">Bolos e Tortas</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Carnes</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Aves</a>
+                        </li>
+                        <li>
+                            <a href="massas.html">Peixes e Frutos do Mar</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Saladas e Molhos</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Sopas</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Massas</a>
+                        </li>
+                        <li>
+                            <a href="lanches.html">Bebidas</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Doces e Sobremesas</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Lanches</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Alimentação Saudável</a>
+                        </li>
+                        <li>
+                            <a href="japones.html">Kids</a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <footer class="row"></footer>
+
+        <script type="text/javascript">
+
+
+function assignText(s) {
+   document.getElementById('json').value = s;
+   document.getElementById('toxml').click();
+}
+function runExample(n) {
+    document.getElementById('json').value=getExampleJson(n);
+    document.getElementById('toxml').click()
+}
+function helpObject(s) {
+    var cnt=0;
+    var n=0;
+    var arrayEntries=["root","entry","key","item","node"];
+
+    //JSON.parse(s, function(k,v) {if(_.isArray(v))cnt++; return v;} );  
+ 
+    return JSON.parse(s,
+       function(k,v) { 
+         var x;
+         if (_.isArray(v) && k==(+k)){x={};x[arrayEntries[cnt-n-1]]=v;n++;return x;} 
+          else return v;}
+      );
+}
+
+function runit() {
+    var s = document.getElementById("json").value;
+    if(s.trim()===""){
+        //window.alert("You must enter your JSON here.");
+        document.getElementById("json").focus();
+        return;
+    }
+    var x2js = new X2JS();
+    var xml='<?xml version="1.0" encoding="UTF-8" ?>\n';
+    try {
+
+        try {( obj=JSON.parse(s))}catch(e){obj=eval("obj="+s)} 
+        if(!obj) {window.alert("Your JSON is not valid.");return;}
+        renameBadKeyNames(obj);
+        if(!_.isArray(obj) && (_.keys(obj).length>1 || (_.keys(obj).length==1 && _.isArray(obj[_.keys(obj)[0]]))) ) { 
+             obj={"root" :  obj}; // object with multiple properties or one property of type array
+        }
+        else if(!_.isArray(obj) && _.keys(obj).length==0 ) { 
+             obj={"root" :  obj}; // empty object
+        }
+        else if(_.isArray(obj) )obj={"root" : {"row": obj}}; // If an array of objects do this
+
+        if(obj) {
+             s=fixObjectArray(obj);
+             obj=JSON.parse(s);
+        }
+        //if(obj) {
+        //   Object.keys(obj).forEach(function(key,index) {
+        //      if(_.isObject(obj[key]))obj[key].renameProperty(key,key.trim().replace(/\s+/g,"_"));
+        //   });
+       // }
+        s=x2js.json2xml_str(obj).replace(/\<-/gm,"<").replace(/\<\/-/gm,"</").replace(/\<#/gm,"<").replace(/\<\/#/gm,"</");
+        document.getElementById("txta").value = xml +  pd.xml(s);
+       
+    }
+    catch(e) {
+         alert("Invalid JSON entered " + (e.Description ? ":" + e.Description: ""));
+    }
+}
+
+
+</script>
+    </body>
+</html>
